@@ -28,7 +28,7 @@ DoublyLL(int value){
 Node * Newnode = new Node (value);
 head = Newnode;
 tail = Newnode;
-length ++;
+++length;
 }
 
 void append (int value){
@@ -41,7 +41,7 @@ Node * Newnode = new Node (value);
     Newnode -> last = tail ;
     tail = Newnode;
   }
-  length ++;
+  ++length;
 }
 
 void Deletelast (){
@@ -55,7 +55,7 @@ Node * temp = tail ;
   tail -> next = nullptr ;
   }
   delete temp ;
-  length--;
+  --length;
 }
 
 void prepend (int value){
@@ -68,7 +68,7 @@ void prepend (int value){
     head - > last = Newnode;
     head = Newnode;
   }
-  length++;
+  ++length;
 }
 
 void Deletefirst (){
@@ -83,7 +83,7 @@ void Deletefirst (){
     temp -> next = nullptr;
   }
   delete temp;
-  length--;
+  --length;
 }
 
 Node * retrievenode (int index) {
@@ -114,10 +114,22 @@ temp -> value = value;
 bool insertnode (int index , int value) {
 Node * Newnode = new Node (value);
 	if (index < 0 || index > length) return false ;
+	if (index == 0){
+		prepend(value);
+		return true;
+	} if (index == length){
+		append (value);
+		return true;
+	} 
+	Node * before =  retrievenode (index - 1);
+	Node * after = before - > next;
+	Newnode -> last = before ;
+	Newnode -> next = after ;
+	before -> next = Newnode;
+	after -> last = Newnode;
+	++length;
+	return true;
 }
-
-
-
 
 
 
