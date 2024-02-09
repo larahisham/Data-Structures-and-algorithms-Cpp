@@ -134,9 +134,10 @@ void Deletenode (int index) {
 	if (index < 0 || index >= length) return;
 	if (index == 0) return Deletefirst ();
 	if (index == length - 1) return Deletelast();
-	Node * temp = 
-	
-}
-
-
+	Node * temp = retrievenode (index);
+	temp -> next -> last = temp -> last ;
+	temp -> last -> next = temp -> next ;
+	delete temp ;
+	--length; 
+   }
 };
