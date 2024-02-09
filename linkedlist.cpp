@@ -132,7 +132,7 @@ public:
 	}
 
 	bool insertnode (int index, int value) {
-		if (index < 0) return false;
+		if (index < 0 || index > length) return false;
 		if (index == 0) {
 			prepend(value);
 			length++;
