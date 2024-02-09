@@ -230,4 +230,4 @@ void arrayListType<elemType>::remove(const elemType& removeItem)
 			cout << "The item you want to delete isn't in the list\n";
 	}
 } 
-//lara.H A B Y 
+//Lara H. A B Y 
