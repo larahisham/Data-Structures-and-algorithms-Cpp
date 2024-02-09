@@ -23,12 +23,16 @@ stack (int value){
   }
 void Push (int value){
   Node * Newnode = new Node (value);
-  if (height == 0) 
-    top = Newnode ; 
-  else {
     Newnode -> next = top;
     top = Newnode;
-  }
+  height++;
+}
+void pop (){
+ Node * temp = top ;
+ if (height == 0) return ;
+  top = top -> next ;
+  delete temp;
+ height --;
 }
 void Printstack (){
   Node * temp = top;
@@ -39,3 +43,4 @@ void Printstack (){
 }
 
 };
+// Lara .H A B Y 
