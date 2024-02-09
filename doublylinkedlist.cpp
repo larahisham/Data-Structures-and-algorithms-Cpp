@@ -130,7 +130,13 @@ Node * Newnode = new Node (value);
 	++length;
 	return true;
 }
-
+void Deletenode (int index) {
+	if (index < 0 || index >= length) return;
+	if (index == 0) return Deletefirst ();
+	if (index == length - 1) return Deletelast();
+	Node * temp = 
+	
+}
 
 
 };
