@@ -16,6 +16,8 @@ public:
 	}
 
 };
+
+
 class DoublyLL {
 private :
 Node * head;
@@ -28,6 +30,7 @@ head = Newnode;
 tail = Newnode;
 length ++;
 }
+
 void append (int value){
 Node * Newnode = new Node (value);
   if (length == 0) {
@@ -40,6 +43,7 @@ Node * Newnode = new Node (value);
   }
   length ++;
 }
+
 void Deletelast (){
   if (length == 0) return;
 Node * temp = tail ;
@@ -53,6 +57,7 @@ Node * temp = tail ;
   delete temp ;
   length--;
 }
+
 void prepend (int value){
   Node * Newnode = new Node (value);
   if (length == 0){
@@ -65,6 +70,7 @@ void prepend (int value){
   }
   length++;
 }
+
 void Deletefirst (){
   if (length == 0) return ;
   Node * temp = head ;
@@ -95,10 +101,20 @@ Node * retrievenode (int index) {
   }
   return temp ;
 }
+
 bool setvalue(int index , int value) {
-  
+Node * temp = retrievenode (index);
+if (temp){
+temp -> value = value;	
+	return true;
+  }
+	return false;
 }
 
+bool insertnode (int index , int value) {
+Node * Newnode = new Node (value);
+	if (index < 0 || index > length) return false ;
+}
 
 
 
