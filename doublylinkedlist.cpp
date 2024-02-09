@@ -95,7 +95,7 @@ Node * retrievenode (int index) {
   }
   return temp ;
 }
-bool setvaluetonode(int index , int value) {
+bool setvalue(int index , int value) {
   
 }
 
