@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 class Node {
 public:
@@ -6,7 +7,7 @@ public:
     Node* left;
     int value;
     Node(int value) {
-        this -> value = value;
+        this->value = value;
         right = nullptr;
         left = nullptr;
     }
@@ -16,7 +17,7 @@ class Bstree {
 public:
     Node* root;
 
-    Bstrees (int value) {
+    Bstrees(int value) {
         root = nullptr;
     }
     bool Insertnode(int value) {
@@ -59,6 +60,60 @@ public:
         }
         return false;
     }
+
+
+
+
+    void Bredthsearch() {
+        queue<Node*> SQ;
+        SQ.push(root);
+
+        while (SQ.size() > 1) {
+            Node* thisnode = SQ.front();
+            SQ.pop();
+            cout << thisnode->value << " ";
+            if (thisnode->left) {
+                SQ.push(thisnode->left);
+             } if (thisnode->right) {
+                SQ.push(thisnode->right);
+            }
+
+        } 
+
+    }
+
+
+    void Depthsearchpre(Node * thisnode){
+        cout << thisnode->value << "  ";
+        if(thisnode->left){
+            Depthsearchpre(thisnode->left);
+        }  if(thisnode->right){
+            Depthsearchpre(thisnode->right);
+            }
+
+    } void Depthsearchpre() { Depthsearchpre(root); }
+
+
+    void Depthsearchpost(Node* thisnode) {
+        if (thisnode->left) {
+            Depthsearchpost(thisnode->left);
+        }  if (thisnode->right) {
+            Depthsearchpost(thisnode->right);
+        } cout << thisnode->value << "  ";
+    } void Depthsearchpost() { Depthsearchpost(root); }
+
+
+    void Depthsearchin(Node* thisnode) {
+        
+        if (thisnode->left) {
+            Depthsearchin(thisnode->left);
+        } cout << thisnode->value << "  ";
+         if (thisnode->right) {
+            Depthsearchin(thisnode->right);
+        }
+    } void Depthsearchin() { Depthsearchin(root); }
+
+
 
 };
 
